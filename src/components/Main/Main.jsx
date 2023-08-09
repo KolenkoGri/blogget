@@ -1,10 +1,13 @@
 import style from './Main.module.css';
 import Layout from '../Layout';
+import Tabs from './Tabs';
+import List from './List';
 
-export const Main = () => {
-  return (
-  <Layout>
-    <div className={style.main}> Здесь будет что-то</div>
-  </Layout>
-  )
-}
+console.log(style);
+
+export const Main = () => (
+    <Layout>
+        <Tabs/>
+        <List/>
+    </Layout>
+);
