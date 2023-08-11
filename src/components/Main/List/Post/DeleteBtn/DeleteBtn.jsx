@@ -1,6 +1,6 @@
 import style from './DeleteBtn.module.css';
-import deleteImg from './img/delete.svg';
+import {ReactComponent as DeleteIcon} from './img/delete.svg';
 
 export const DeleteBtn = () => <button className={style.delete}>
-    <img src={deleteImg}/>
+    <DeleteIcon width={20} height={20}/>
 </button>;

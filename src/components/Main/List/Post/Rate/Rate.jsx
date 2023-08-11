@@ -1,10 +1,14 @@
 import style from './Rate.module.css';
 import PropTypes from 'prop-types';
+import {Text} from '../../../../../UI/Text';
 
 export const Rate = ({ups}) => <div className={style.raiting}>
-    <button className = {style.up} aria-label='Повысить рейтинг'/>
-    <p className={style.ups}>{ups}</p>
-    <button className = {style.down} aria-label='Понизить рейтинг'/>
+    <Text As='button'
+        className = {style.up} aria-label='Повысить рейтинг'/>
+    <Text As='p' size={12} tsize={16} dsize={120} color='grey'
+        className={style.ups}>{ups}</Text>
+    <Text As='button'
+        className = {style.down} aria-label='Понизить рейтинг'/>
 </div>;
 
 

@@ -1,10 +1,12 @@
 import style from './Title.module.css';
 import Layout from '../../Layout';
 import PropTypes from 'prop-types';
+import {Text} from '../../../UI/Text';
 
 export const Title = (props) => (
     <Layout>
-        <h1 className={style.heading}>{props.text}</h1>
+        <Text As='h1' size={22} tsize={26} center
+            className={style.heading}>{props.text}</Text>
     </Layout>
 );
 
