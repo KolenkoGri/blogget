@@ -7,7 +7,7 @@ import Search from './Search';
 import Title from './Title';
 import PropTypes from 'prop-types';
 
-export const Header = ({token, delToken, auth, setAuth}) => (
+export const Header = ({token, delToken}) => (
     <header className={style.header}>
         <Layout>
             <div className={style.gridContainer}>
@@ -15,7 +15,6 @@ export const Header = ({token, delToken, auth, setAuth}) => (
                 <Title text = "Главная"/>
                 <Search/>
                 <Auth token = {token} delToken = {delToken}
-                    auth = {auth} setAuth = {setAuth}
                 />
             </div>
         </Layout>
@@ -23,8 +22,6 @@ export const Header = ({token, delToken, auth, setAuth}) => (
 );
 
 Header.propTypes = {
-    auth: PropTypes.object,
-    setAuth: PropTypes.func,
     token: PropTypes.string,
     delToken: PropTypes.func,
 };
