@@ -3,31 +3,10 @@ import PropTypes from 'prop-types';
 import {ReactComponent as LoginIcon} from './img/login.svg';
 import {urlAuth} from '../../../api/auth';
 import {Text} from '../../../UI/Text';
-import {useEffect, useState} from 'react';
-import {URL_API} from '../../../api/const';
-// import {useAuth} from '../../../hooks/useAuth';
+import {useState} from 'react';
 
-
-export const Auth = ({token, delToken}) => {
-    const [auth, setAuth] = useState({});
+export const Auth = ({delToken, auth, setAuth}) => {
     const [login, setLogin] = useState(false);
-    // useAuth (token, URL_API);
-    useEffect(() => {
-        if (!token) return;
-        fetch(`${URL_API}/api/v1/me`, {
-            headers: {
-                Authorization: `bearer ${token}`,
-            },
-        }).then(response => response.json()).
-            then(({name, icon_img: iconImg}) => {
-                const img = iconImg.replace(/\?.*$/, '');
-                setAuth({name, img});
-            })
-            .catch((err) => {
-                console.log(err);
-                setAuth({});
-            });
-    }, [token]);
 
     const logout = () => {
         setLogin(!login);
@@ -64,6 +43,8 @@ export const Auth = ({token, delToken}) => {
 };
 
 Auth.propTypes = {
+    auth: PropTypes.object,
+    setAuth: PropTypes.func,
     token: PropTypes.string,
     delToken: PropTypes.func,
 };
