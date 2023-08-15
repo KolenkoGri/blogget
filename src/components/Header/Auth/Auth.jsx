@@ -18,7 +18,7 @@ export const Auth = () => {
     const exitLogin = () => {
         delToken();
         clearAuth();
-        // location.href = location.origin;
+        location.href = location.origin;
     };
 
     return (

@@ -7,8 +7,9 @@ import DeleteBtn from './DeleteBtn';
 import {Text} from '../../../../UI/Text';
 
 export const Post = ({postData}) => {
-    const {title, author, ups, date} = postData;
-    return <li className={style.post}>
+    const {title, author, ups, created} = postData.data;
+
+    return (postData && <li className={style.post}>
         <img className={style.img} src={notphoto}/>
         <div className={style.content}>
             <Text As='h2' className={style.title}>
@@ -21,11 +22,12 @@ export const Post = ({postData}) => {
 
         <Rate ups = {ups}/>
 
-        <time className={style.date} dateTime={date}>{formatDate(date)}</time>
+        <time className={style.date} dateTime={created}>
+            {formatDate(created)}</time>
 
         <DeleteBtn/>
 
-    </li>;
+    </li>);
 };
 
 

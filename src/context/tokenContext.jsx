@@ -5,21 +5,14 @@ import {useToken} from '../hooks/useToken';
 export const tokenContext = React.createContext({});
 
 export const TokenContextProvider = ({children}) => {
-    const [token] = useToken();
-
-    // const delToken = () => {
-    //     if (localStorage.getItem('bearer')) {
-    //         localStorage.removeItem('bearer');
-    //     }
-    // };
+    const [token, delToken] = useToken();
 
     return (
-        <TokenContextProvider value = {{token}}>
+        <tokenContext.Provider value={{token, delToken}}>
             {children}
-        </TokenContextProvider>
+        </tokenContext.Provider>
     );
 };
-
 
 TokenContextProvider.propTypes = {
     children: PropTypes.node.isRequired,
