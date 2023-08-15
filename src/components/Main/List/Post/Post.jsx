@@ -7,10 +7,11 @@ import DeleteBtn from './DeleteBtn';
 import {Text} from '../../../../UI/Text';
 
 export const Post = ({postData}) => {
-    const {title, author, ups, created} = postData.data;
+    const {title, author, ups, created, thumbnail} = postData.data;
 
     return (postData && <li className={style.post}>
-        <img className={style.img} src={notphoto}/>
+        <img className={style.img} src={thumbnail ?
+            thumbnail : notphoto} alt={title}/>
         <div className={style.content}>
             <Text As='h2' className={style.title}>
                 <Text As='a' className={style.linkPost}
