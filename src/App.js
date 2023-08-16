@@ -2,7 +2,6 @@ import {Header} from './components/Header/Header';
 import {Main} from './components/Main/Main';
 import {AuthContextProvider} from './context/authContext';
 import {TokenContextProvider} from './context/tokenContext';
-// import {useToken} from './hooks/useToken';
 import {PostsContextProvider} from './context/postsContext';
 
 function App() {
