@@ -8,10 +8,20 @@ const initialState = {
 
 const UPDATE_COMMENT = 'UPDATE_COMMENT';
 const UPDATE_TOKEN = 'UPDATE_TOKEN';
-const DELETE_COMMENT = 'DELETE_COMMENT';
+const DELETE_TOKEN = 'DELETE_TOKEN';
+
 export const updateComment = comment => ({
     type: UPDATE_COMMENT,
     comment,
+});
+
+export const updateToken = (token) => ({
+    type: UPDATE_TOKEN,
+    token,
+});
+
+export const deleteToken = () => ({
+    type: DELETE_TOKEN,
 });
 
 const rootReducer = (state = initialState, action) => {
@@ -27,10 +37,11 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 token: action.token,
             };
-        case DELETE_COMMENT:
+        case DELETE_TOKEN:
+            setToken('');
             return {
                 ...state,
-                token: action.comment,
+                token: '',
             };
 
         default:

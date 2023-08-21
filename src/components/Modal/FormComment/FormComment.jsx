@@ -7,7 +7,7 @@ import {updateComment} from '../../../store';
 
 export const FormComment = () => {
     // const store = useStore();
-    // const value = store.getState().comment;
+    // const value = store.getState().comment; Это равнозначно строке ниже!!!
     const value = useSelector(state => state.comment);
     const dispatch = useDispatch();
     const {auth} = useContext(authContext);
