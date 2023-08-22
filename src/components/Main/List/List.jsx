@@ -1,12 +1,12 @@
-import {useContext} from 'react';
 import style from './List.module.css';
 import Post from './Post';
-import {postsContext} from '../../../context/postsContext';
+import {useBestPosts} from '../../../hooks/useBestPosts';
+import AuthLoader from '../../Header/Auth/AuthLoader';
 
 export const List = () => {
-    const posts = useContext(postsContext);
+    const [posts, loading] = useBestPosts();
     return (
-        <ul className={style.list}>
+        loading ? <AuthLoader/> : <ul className={style.list}>
             {posts.map((post) => (
                 <Post key={post.data.id} postData = {post}/>
             ))}

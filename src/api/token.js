@@ -14,16 +14,3 @@ export const getToken = () => {
     }
     return token;
 };
-// import {useState, useEffect} from 'react';
-
-// export const useToken = (state) => {
-//     const [token, setToken] = useState(state);
-
-//     const delToken = () => {
-//         if (localStorage.getItem('bearer')) {
-//             localStorage.removeItem('bearer');
-//         }
-//     };
-
-//     return [token, delToken];
-// };

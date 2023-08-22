@@ -1,16 +1,16 @@
-import {useContext, useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import style from './FormComment.module.css';
 import {Text} from '../../../UI/Text';
-import {authContext} from '../../../context/authContext';
 import {useDispatch, useSelector} from 'react-redux';
-import {updateComment} from '../../../store';
+import {updateComment} from '../../../store/commentReducer';
+import {useAuth} from '../../../hooks/useAuth';
 
 export const FormComment = () => {
     // const store = useStore();
     // const value = store.getState().comment; Это равнозначно строке ниже!!!
-    const value = useSelector(state => state.comment);
+    const value = useSelector(state => state.comment.comment);
     const dispatch = useDispatch();
-    const {auth} = useContext(authContext);
+    const [auth] = useAuth();
     const inputRef = useRef(null);
     const [sendView, setSendView] = useState(false);
 

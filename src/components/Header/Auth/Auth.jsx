@@ -2,10 +2,11 @@ import style from './Auth.module.css';
 import {ReactComponent as LoginIcon} from './img/login.svg';
 import {urlAuth} from '../../../api/auth';
 import {Text} from '../../../UI/Text';
-import {useState, useContext} from 'react';
-import {authContext} from '../../../context/authContext';
+import {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {deleteToken} from '../../../store';
+import {deleteToken} from '../../../store/tokenReducer';
+import {useAuth} from '../../../hooks/useAuth';
+import AuthLoader from './AuthLoader';
 
 
 export const Auth = () => {
@@ -17,7 +18,7 @@ export const Auth = () => {
     };
 
     const [login, setLogin] = useState(false);
-    const {auth, clearAuth} = useContext(authContext);
+    const [auth, loading, clearAuth] = useAuth();
 
     const logout = () => {
         setLogin(!login);
@@ -31,7 +32,7 @@ export const Auth = () => {
 
     return (
         <div className={style.container}>
-            { auth.name ?
+            {loading ? <AuthLoader/> : auth.name ?
             <>
                 <button className = {style.btn} onClick={() => {
                     logout();
