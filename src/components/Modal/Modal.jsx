@@ -7,18 +7,18 @@ import {useEffect, useRef} from 'react';
 import {useCommentsData} from '../../hooks/useCommentsData';
 import Comments from './Comments';
 import FormComment from './FormComment';
+import AuthLoader from '../../UI/AuthLoader';
 
 export const Modal = ({closeModal, id}) => {
-    const [post] = useCommentsData(id);
-    const postData = post && post[0].data.children[0].data;
-    const comments = post && post[1].data.children;
+    const [comments, loading] = useCommentsData(id);
+    const postData = comments && comments[0];
     const overlayRef = useRef(null);
     const closeX = useRef(null);
 
     const handleClick = (e) => {
         const target = e.target;
         if (target === overlayRef.current || target === closeX.current ||
-          post && target === closeX.current.firstChild) {
+            postData && target === closeX.current.firstChild) {
             closeModal();
         }
     };
@@ -39,7 +39,8 @@ export const Modal = ({closeModal, id}) => {
     }, []);
 
     return createPortal(
-        post && <div className={style.overlay} ref={overlayRef}>
+        loading ? <AuthLoader/> :
+        postData && <div className={style.overlay} ref={overlayRef}>
             <div className={style.modal}>
                 <h2 className={style.title}>
                     {postData.title}</h2>

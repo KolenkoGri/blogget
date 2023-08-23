@@ -26,9 +26,9 @@ export const getPosts = () => (dispatch, getState) => {
         headers: {
             Authorization: `bearer ${token}`,
         },
-    }).then(async ({data}) => {
+    }).then(({data}) => {
         const items = data.data.children;
-        await dispatch(postsRequestSuccess(items));
+        dispatch(postsRequestSuccess(items));
     })
         .catch((err) => {
             console.log(err);
