@@ -8,7 +8,6 @@ export const useCommentsData = (id) => {
     const loading = useSelector((state) => state.posts.loading);
     const dispatch = useDispatch();
 
-    console.log(comments, loading, id);
     comments && useEffect(() => {
         dispatch(getComments(id));
     }, [token]);

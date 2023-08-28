@@ -32,7 +32,6 @@ export const getComments = (id) => (dispatch, getState) => {
         const children = data[1].data.children;
         const comments = children.map((item) => item.data);
         const item = [post, comments];
-        console.log(data, item);
         dispatch(commentsRequestSuccess(item));
     })
         .catch((err) => {

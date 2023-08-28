@@ -5,10 +5,14 @@
   }
   
   .gridContainer {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 30px 2fr 30px;
     align-items: center;
-    gap: 15px;
+    gap: 15px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
   }
   
   

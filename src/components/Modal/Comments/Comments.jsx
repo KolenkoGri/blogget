@@ -13,7 +13,7 @@ export const Comments = ({comments}) => {
             <>
                 <h3>Комментарии:</h3>
                 {
-                    comments.map((e) => (
+                    comments.map((e) => e.body && (
                         <div key={e.id} className="post">
                             <div className={style.author}>{e.author}</div>
                             <div className={style.content}>{e.body ?

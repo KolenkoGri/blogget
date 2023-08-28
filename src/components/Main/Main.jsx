@@ -1,10 +1,16 @@
 import Layout from '../Layout';
 import Tabs from './Tabs';
 import List from './List';
+import {Routes, Route} from 'react-router-dom';
+import {Modal} from '../Modal/Modal';
 
 export const Main = () => (
     <Layout>
         <Tabs/>
-        <List/>
+        <Routes>
+            <Route path='/category/:page' element={<List/>}>
+                <Route path='post/:id' element={<Modal/>}/>
+            </Route>
+        </Routes>
     </Layout>
 );

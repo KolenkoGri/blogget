@@ -5,7 +5,7 @@ export const Search = () => (
     <form className={style.form}>
         <input className={style.search} type='search'/>
         <button className={style.button}>
-            <SearchImg width={30} height={30}/>
+            <SearchImg width={20} height={20}/>
         </button>
     </form>
 );

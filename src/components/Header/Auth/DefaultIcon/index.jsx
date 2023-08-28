@@ -1,2 +1,2 @@
-import {defaultIcon} from './defaultIcon';
+import {defaultIcon} from './DefaultIcon';
 export default defaultIcon;

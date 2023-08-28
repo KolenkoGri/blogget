@@ -5,33 +5,28 @@ import formatDate from '../../../../utils/formatData';
 import Rate from './Rate';
 import DeleteBtn from './DeleteBtn';
 import {Text} from '../../../../UI/Text';
-import {useState} from 'react';
-import Modal from '../../../Modal';
+import {Link, useParams} from 'react-router-dom';
 
 export const Post = ({postData}) => {
-    const {title, author, ups, created, thumbnail,
-        selftext: markdown, id} = postData.data;
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const {title, author, ups, created, thumbnail, id} = postData.data;
+    const {page} = useParams();
+
 
     return (postData && <li className={style.post}>
         <img className={style.img} src={thumbnail ?
             thumbnail.replace(/\?.*$/, '') : notphoto} alt={title}/>
         <div className={style.content}>
             <Text As='h2' className={style.title} >
-                <Text As='a' className={style.linkPost}
-                    size={18} tsize={24} href='#post'
-                    onClick = {() => {
-                        setIsModalOpen(true);
-                    }}
-                >{title}
-                </Text>
+                <Link className={style.linkPost}
+                    to={`/category/${page}/post/${id}`}>
+                    <Text bold size={18} tsize={24}>
+                        {title}
+                    </Text>
+                </Link>
             </Text>
             <Text As='a' size={12} tsize={14} color='orange'
                 className = {style.linkAuthor} href='#author'>{author}
             </Text>
-            {isModalOpen && <Modal markdown = {markdown}
-                title = {title} author = {author}
-                closeModal = {() => setIsModalOpen(false)} id={id}/>}
         </div>
 
         <Rate ups = {ups}/>
