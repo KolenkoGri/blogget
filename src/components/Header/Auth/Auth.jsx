@@ -10,7 +10,7 @@ import AuthLoader from '../../../UI/AuthLoader';
 
 
 export const Auth = () => {
-    const token = useSelector(state => state.token);
+    const token = useSelector(state => state.token.token);
     const dispatch = useDispatch();
 
     const delToken = () => {

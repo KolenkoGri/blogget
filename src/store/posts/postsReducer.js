@@ -3,7 +3,8 @@ import {
     POSTS_REQUEST_SUCCESS,
     POSTS_REQUEST_ERROR,
     POSTS_REQUEST_SUCCESS_AFTER,
-    CHANGE_PAGE
+    CHANGE_PAGE,
+    CHANGE_QUEUE
 } from './postsAction';
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
     after: '',
     isLast: false,
     page: '',
+    queue: 0,
 };
 
 export const postsReducer = (state = initialState, action) => {
@@ -54,6 +56,12 @@ export const postsReducer = (state = initialState, action) => {
                 page: action.page,
                 after: '',
                 isLast: false,
+            };
+
+        case CHANGE_QUEUE:
+            return {
+                ...state,
+                queue: action.queue,
             };
 
         default:

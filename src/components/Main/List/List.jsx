@@ -8,10 +8,12 @@ import {useDispatch
 } from 'react-redux';
 import {getPosts} from '../../../store/posts/postsAction';
 import {Outlet, useParams} from 'react-router-dom';
+import {changeQueue} from '../../../store/posts/postsAction';
 
 export const List = () => {
     const loading = useBestPosts()[1];
     const posts = useSelector(state => state.posts.data);
+    const queue = useSelector(state => state.posts.queue);
     const endList = useRef(null);
     const dispatch = useDispatch();
     const {page} = useParams();
@@ -41,7 +43,10 @@ export const List = () => {
         loading ?
         <>
             <ul className={style.list}>
-                {posts.map((post) => (
+                {queue === 2 && <button onClick={() => {
+                    dispatch(changeQueue(1));
+                }}>Загрузить ещё</button> ||
+                posts.map((post) => (
                     <Post key={post.data.id} postData = {post}/>
                 ))}
                 <li ref={endList} className={style.end}/>
@@ -50,7 +55,9 @@ export const List = () => {
         </> :
         <>
             <ul className={style.list}>
-                {posts.map((post) => (
+                {queue === 2 && <button onClick={() => {
+                    dispatch(changeQueue(1));
+                }}>Загрузить ещё</button> || posts.map((post) => (
                     <Post key={post.data.id} postData = {post}/>
                 ))}
                 <li ref={endList} className={style.end}/>

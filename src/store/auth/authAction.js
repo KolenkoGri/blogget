@@ -21,7 +21,7 @@ export const authRequestError = (error) => ({
     error,
 });
 
-export const authLogout = (error) => ({
+export const authLogout = () => ({
     type: AUTH_LOGOUT,
 });
 
@@ -41,7 +41,7 @@ export const authRequestAsync = () => (dispatch, getState) => {
         })
         .catch((err) => {
             console.log(err);
-            deleteToken();
+            dispatch(deleteToken());
             dispatch(authRequestError(err.toString()));
         });
 };
