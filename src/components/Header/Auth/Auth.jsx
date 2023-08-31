@@ -1,56 +1,53 @@
 import style from './Auth.module.css';
 import {ReactComponent as LoginIcon} from './img/login.svg';
 import {urlAuth} from '../../../api/auth';
-import {Text} from '../../../UI/Text';
+import {Text} from '../../../ui/Text';
 import {useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {deleteToken} from '../../../store/tokenReducer';
+import {deleteToken} from '../../../store/token/actionToken';
+import {useDispatch} from 'react-redux';
 import {useAuth} from '../../../hooks/useAuth';
-import AuthLoader from '../../../UI/AuthLoader';
-
+import AuthLoader from '../../../ui/AuthLoader';
 
 export const Auth = () => {
-    const token = useSelector(state => state.token.token);
-    const dispatch = useDispatch();
+  // const {delToken} = useContext(tokenContext);
+  const [auth, loading] = useAuth();
+  const [btnClose, setBtnClose] = useState('dnone');
+  const dispatch = useDispatch();
 
-    const delToken = () => {
-        dispatch(deleteToken(token));
-    };
+  const delToken = (e) => {
+    dispatch(deleteToken());
+  };
 
-    const [login, setLogin] = useState(false);
-    const [auth, loading, clearAuth] = useAuth();
+  const toggleBtn = () => {
+    setBtnClose(btnClose === 'dnone' ? 'logout' : 'dnone');
+  };
+  return (
+    <div className={style.container}>
+      {loading ? (
+        <AuthLoader />
+      ) : auth.name ? (
+        <>
+          <button onClick={toggleBtn} className={style.btn}>
+            <img
+              className={style.img}
+              src={auth.img}
+              title={auth.name}
+              alt={`Аватар ${auth.name}`}
+            />
+            <Text color="red">{auth.name}</Text>
+          </button>
 
-    const logout = () => {
-        setLogin(!login);
-    };
-
-    const exitLogin = () => {
-        delToken();
-        clearAuth();
-        location.href = location.origin;
-    };
-
-    return (
-        <div className={style.container}>
-            {loading ? <AuthLoader/> : auth.name ?
-            <>
-                <button className = {style.btn} onClick={() => {
-                    logout();
-                }}>
-                    <img className={style.img} src = {auth.img}
-                        title = {auth.name} alt={'Аватар'} />
-                </button>
-                {login && <button
-                    className={style.logout} onClick = {() => {
-                        exitLogin();
-                    }
-                    }>
-                    Выйти</button>}
-            </> :
-            <Text className={style.authLink} As='a' href={urlAuth}>
-                <LoginIcon className={style.svg} width={50} height={50}/>
-            </Text>}
-        </div>
-    );
+          <button onClick={delToken} className={style[btnClose]}>
+            <Text As="a" href="/">
+              Выйти
+            </Text>
+          </button>
+        </>
+      ) : (
+        <Text As="a" href={urlAuth} className={style.authLink}>
+          <LoginIcon className={style.svg} />
+        </Text>
+      )}
+    </div>
+  );
 };
-

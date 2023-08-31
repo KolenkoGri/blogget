@@ -1,13 +1,13 @@
 import {
-    URL_AUTH,
-    CLIENT_ID,
-    RESPONSE_TYPE,
-    RANDOM_STRING,
-    REDIRECT_URI,
-    SCOPE,
-} from './const';
+  URL_AUTH,
+  CLIENT_ID,
+  RESPONSE_TYPE,
+  RANDOM_STRING,
+  REDIRECT_URI,
+  SCOPE,
+} from './const.js';
 
-const searchParams = new URLSearchParams('');
+export const searchParams = new URLSearchParams('');
 
 searchParams.append('client_id', CLIENT_ID);
 searchParams.append('response_type', RESPONSE_TYPE);

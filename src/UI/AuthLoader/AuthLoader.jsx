@@ -1,6 +1,5 @@
-import RingLoader from 'react-spinners/RingLoader';
+import FadeLoader from 'react-spinners/FadeLoader';
 
-export const AuthLoader = () => <RingLoader
-    color = '#cc6633'
-    css = {{display: 'block'}}
-    size={30}/>;
+export const AuthLoader = () => (
+  <FadeLoader color="#cc6633" css={{display: 'block'}} size={10} />
+);

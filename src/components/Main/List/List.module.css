@@ -1,20 +1,8 @@
 .list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 30px;
-  }
-
-.wrapper {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.notify {
-  background-color: burlywood;
-  text-align: center;
-  padding: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
 }
 
 .end {

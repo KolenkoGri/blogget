@@ -1,37 +1,49 @@
-import style from './Comments.module.css';
-import PropTypes from 'prop-types';
-import formatDate from '../../../utils/formatData';
-import AuthLoader from '../../../UI/AuthLoader';
+import style from './Comments .module.css';
+import {PropTypes} from 'prop-types';
+import {Text} from '../../../ui/Text';
+import {PostTime} from '../../Main/List/Post/PostTime/PostTime';
+import {useSelector} from 'react-redux';
 
 export const Comments = ({comments}) => {
-    if (!comments) {
-        return (
-            <AuthLoader/>
-        );
-    } else {
-        return (comments &&
-            <>
-                <h3>Комментарии:</h3>
-                {
-                    comments.map((e) => e.body && (
-                        <div key={e.id} className="post">
-                            <div className={style.author}>{e.author}</div>
-                            <div className={style.content}>{e.body ?
-                                e.body : <p>Нет комментариев</p>}</div>
-                            <time className={style.date}
-                                dateTime={e.created}>
-                                {e.created ? formatDate(e.created) :
-                                'Время публикации не доступно'}
-                            </time>
-                            <div className={style.line}></div>
-                        </div>
-                    ))
-                }
-            </>
-        );
-    }
+  const comment = useSelector((state) => state.comments.comments);
+  const post = useSelector((state) => state.comments.post);
+  console.log(comments);
+  const arrComments = [];
+
+  for (let i = 0; i < comment.length; i += 1) {
+    const data = comment[i];
+    const com = {
+      author: data.author,
+      body: data.body,
+      created: data.created,
+      id: data.id,
+    };
+    arrComments.push(com);
+  }
+  return comment.length === 0 ? (
+    <Text As="p" center>
+      Нет комментариев
+    </Text>
+  ) : (
+    <ul className={style.list}>
+      {arrComments.map(
+        (arrComments) =>
+          arrComments.body && (
+            <li key={arrComments.id} className={style.item}>
+              <Text As="h2" className={style.author} size={18} tsize={22}>
+                {arrComments.author}
+              </Text>
+              <Text As="p" className={style.comment} size={14} tsize={18}>
+                {arrComments.body}
+              </Text>
+              <PostTime date={post.created * 1000} />
+            </li>
+          )
+      )}
+    </ul>
+  );
 };
 
 Comments.propTypes = {
-    comments: PropTypes.array,
+  comments: PropTypes.array,
 };
