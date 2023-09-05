@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux';
-import {Text} from '../../../../ui/Text/Text';
+import {Text} from '../../../../ui/Text';
 
 export const FirstPage = () => {
   const token = useSelector((state) => state.token.token);
