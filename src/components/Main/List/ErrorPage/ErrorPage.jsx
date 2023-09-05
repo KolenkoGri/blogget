@@ -1,5 +1,4 @@
-// import style from './ErrorPage.module.css';
-import {Text} from '../../../../ui/Text/index';
+import style from './ErrorPage.module.css';
 import {useSelector} from 'react-redux';
 
 export const ErrorPage = () => {
@@ -14,23 +13,23 @@ export const ErrorPage = () => {
   return (
     <>
       {firstPage === testR ? (
-        <>
-          <Text As="h2" center>
+        <div className={style.center}>
+          <h2>
             Стартовая страница
-          </Text>
-          <Text As="p" center>
+          </h2>
+          <p>
             Добро пожаловать
-          </Text>
-          <Text As="p" center>
+          </p>
+          <p>
             Выберите категорию
-          </Text>
-        </>
+          </p>
+        </div>
       ) : (
-        <>
-          <Text As="h2" center color="orange">
+        <div className={style.center}>
+          <h2>
             404
-          </Text>
-        </>
+          </h2>
+        </div>
       )}
     </>
   );
