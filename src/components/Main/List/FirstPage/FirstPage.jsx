@@ -3,7 +3,7 @@ import {Text} from '../../../../ui/Text/index';
 
 export const FirstPage = () => {
   const token = useSelector((state) => state.token.token);
-
+  console.log(Text);
   return (
     <>
       {token ? (
