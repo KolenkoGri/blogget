@@ -1,5 +1,6 @@
 import {useSelector} from 'react-redux';
 import {Text} from '../../../../ui/Text/index';
+import style from './FirstPage.module.css';
 
 export const FirstPage = () => {
   const token = useSelector((state) => state.token.token);
@@ -7,17 +8,17 @@ export const FirstPage = () => {
   return (
     <>
       {token ? (
-        <>
-          <Text As="h2" center>
+        <div className={style.center}>
+          <h2>
             Стартовая страница
-          </Text>
-          <Text As="p" center>
+          </h2>
+          <p>
             Добро пожаловать
-          </Text>
-          <Text As="p" center>
+          </p>
+          <p>
             Выберите категорию
-          </Text>
-        </>
+          </p>
+        </div>
       ) : (
         <>
           <Text As="h2" center color="orange">
