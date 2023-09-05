@@ -10,7 +10,6 @@ export const FormComment = () => {
   const [auth] = useAuth();
   const handlerSubmit = (e) => {
     e.preventDefault();
-    console.log(value);
   };
   const handlerChange = (e) => {
     dispatch(updateComment(e.target.value));
