@@ -1,4 +1,5 @@
-import style from './ErrorPage.module.css';
+// import style from './ErrorPage.module.css';
+import {Text} from '../../../../ui/Text';
 import {useSelector} from 'react-redux';
 
 export const ErrorPage = () => {
@@ -8,28 +9,28 @@ export const ErrorPage = () => {
   const accessToken = `#access_token=`;
   const firstPage = `auth${accessToken}${token}${tokenType}${scope}`;
   const test = window.location.href;
-  const testR = test.replace('https://blogget-tan.vercel.app/', '');
+  const testR = test.replace('https://blogget-iota.vercel.app/', '');
   console.log(firstPage === testR);
   return (
     <>
       {firstPage === testR ? (
-        <div className={style.center}>
-          <h2>
+        <>
+          <Text As="h2" center>
             Стартовая страница
-          </h2>
-          <p>
+          </Text>
+          <Text As="p" center>
             Добро пожаловать
-          </p>
-          <p>
+          </Text>
+          <Text As="p" center>
             Выберите категорию
-          </p>
-        </div>
+          </Text>
+        </>
       ) : (
-        <div className={style.center}>
-          <h2>
+        <>
+          <Text As="h2" center color="orange">
             404
-          </h2>
-        </div>
+          </Text>
+        </>
       )}
     </>
   );

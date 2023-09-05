@@ -1,6 +1,6 @@
 import style from './PostComtent.module.css';
 import PropTypes from 'prop-types';
-import Text from '../../../../../ui/Text';
+import {Text} from '../../../../../ui/Text';
 import {useParams, Link} from 'react-router-dom';
 
 export const PostComtent = ({title, author, id}) => {

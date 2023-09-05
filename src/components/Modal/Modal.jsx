@@ -5,7 +5,7 @@ import Markdown from 'markdown-to-jsx';
 import ReactDOM from 'react-dom';
 import {useEffect, useRef} from 'react';
 import {useCommentsData} from '../../hooks/useCommentsData';
-import Text from '../../ui/Text';
+import {Text} from '../../ui/Text';
 import {FormComment} from './FormComment/FormComment';
 import {Comments} from './Comments/Comments';
 import {useNavigate, useParams} from 'react-router-dom';

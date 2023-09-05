@@ -1,6 +1,6 @@
 import style from './Comments .module.css';
 import {PropTypes} from 'prop-types';
-import Text from '../../../ui/Text';
+import {Text} from '../../../ui/Text';
 import {PostTime} from '../../Main/List/Post/PostTime/PostTime';
 import {useSelector} from 'react-redux';
 

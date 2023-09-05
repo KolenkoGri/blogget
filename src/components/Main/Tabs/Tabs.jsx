@@ -11,7 +11,7 @@ import {ReactComponent as BestIcon} from './img/best.svg';
 import {ReactComponent as HotIcon} from './img/hot.svg';
 import {debounceRaf} from '../../../utils/debounceRaf';
 
-import Text from '../../../ui/Text';
+import {Text} from '../../../ui/Text';
 import {useNavigate} from 'react-router-dom';
 
 const LIST = [
