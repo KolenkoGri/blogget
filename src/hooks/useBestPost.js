@@ -7,6 +7,10 @@ import notphoto from '../components/Main/List/img/notphoto.jpg';
 // import AuthLoader from '../ui/AuthLoader';
 
 export const useBestPost = () => {
+  const searchPosts = useSelector((state) => state.search.posts);
+  console.log(searchPosts);
+  // const best = searchPosts.length > 0 ? searchPosts :
+  // useSelector((state) => state.best.data);
   const best = useSelector((state) => state.best.data);
   const token = useSelector((state) => state.token.token);
   // const loading = useSelector((state) => state.best.loading);

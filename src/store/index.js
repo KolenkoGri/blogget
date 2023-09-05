@@ -7,6 +7,7 @@ import commentsReducer from './comment/commentsSlice';
 import {configureStore} from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './saga';
+import {searchReducer} from './search/searchReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -17,6 +18,7 @@ export const store = configureStore({
     auth: authReducer,
     best: bestReducer,
     comments: commentsReducer,
+    search: searchReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(tokenMiddleware, sagaMiddleware),

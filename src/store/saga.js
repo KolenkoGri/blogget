@@ -1,13 +1,5 @@
-import {takeEvery} from 'redux-saga/effects';
-
-function* workerSaga(action) {
-  yield console.log('ss');
-}
-
-export function* watchSaga() {
-  yield takeEvery('SUBMIT', workerSaga);
-}
+import {watchSearch} from './search/searchSaga';
 
 export default function* rootSaga() {
-  yield watchSaga();
+  yield watchSearch();
 }
