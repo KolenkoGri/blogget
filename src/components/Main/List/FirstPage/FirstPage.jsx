@@ -1,10 +1,8 @@
 import {useSelector} from 'react-redux';
-import {Text} from '../../../../ui/Text/index';
 import style from './FirstPage.module.css';
 
 export const FirstPage = () => {
   const token = useSelector((state) => state.token.token);
-  console.log(Text);
   return (
     <>
       {token ? (
@@ -20,11 +18,11 @@ export const FirstPage = () => {
           </p>
         </div>
       ) : (
-        <>
-          <Text As="h2" center color="orange">
+        <div className={style.center}>
+          <h2>
             Авторизуйтесь
-          </Text>
-        </>
+          </h2>
+        </div>
       )}
     </>
   );
