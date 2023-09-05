@@ -1,1 +1,2 @@
-export * from './Text';
+import {Text} from './AuthLoader';
+export default Text;
