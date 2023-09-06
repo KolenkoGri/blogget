@@ -1,7 +1,7 @@
 import style from './Auth.module.css';
 import {ReactComponent as LoginIcon} from './img/login.svg';
 import {urlAuth} from '../../../api/auth';
-import {Text} from '../../../ui/Text';
+import {Text} from '../../../UI/Text';
 import {useState} from 'react';
 import {deleteToken} from '../../../store/token/actionToken';
 import {useDispatch} from 'react-redux';

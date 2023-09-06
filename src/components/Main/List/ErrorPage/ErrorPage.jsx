@@ -1,5 +1,5 @@
 // import style from './ErrorPage.module.css';
-import {Text} from '../../../../ui/Text/index';
+import {Text} from '../../../../ui/Text';
 import {useSelector} from 'react-redux';
 
 export const ErrorPage = () => {
