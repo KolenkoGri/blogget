@@ -1,5 +1,5 @@
 import style from './FirstPage.module.css';
-import {Text} from '../../../../ui/Text/Text';
+import {Text} from '../../../../ui/Text/index';
 
 import {useSelector} from 'react-redux';
 
