@@ -1,5 +1,6 @@
 import style from './FirstPage.module.css';
-import {Text} from '../../../../ui/Text';
+import {Text} from '../../../../ui/Text/Text';
+
 import {useSelector} from 'react-redux';
 
 export const FirstPage = () => {
