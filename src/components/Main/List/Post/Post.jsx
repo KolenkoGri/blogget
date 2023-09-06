@@ -10,7 +10,7 @@ export const Post = ({postData}) => {
   const {title, author, ups, date, id, thumbnail} = postData;
 
   return (
-    <li key={id} className={style.post}>
+    <li className={style.post}>
       <PostPhoto title={title} images={thumbnail} />
       <PostComtent title={title} author={author} id={id} />
       <div className={style.rating}>

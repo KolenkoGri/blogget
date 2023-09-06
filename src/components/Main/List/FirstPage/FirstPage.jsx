@@ -1,28 +1,31 @@
-import {useSelector} from 'react-redux';
 import style from './FirstPage.module.css';
+import {Text} from '../../../../ui/Text';
+import {useSelector} from 'react-redux';
 
 export const FirstPage = () => {
   const token = useSelector((state) => state.token.token);
+  console.log(style);
+
   return (
     <>
       {token ? (
-        <div className={style.center}>
-          <h2>
+        <>
+          <Text As="h2" center>
             Стартовая страница
-          </h2>
-          <p>
+          </Text>
+          <Text As="p" center>
             Добро пожаловать
-          </p>
-          <p>
+          </Text>
+          <Text As="p" center>
             Выберите категорию
-          </p>
-        </div>
+          </Text>
+        </>
       ) : (
-        <div className={style.center}>
-          <h2>
+        <>
+          <Text As="h2" center color="orange">
             Авторизуйтесь
-          </h2>
-        </div>
+          </Text>
+        </>
       )}
     </>
   );
