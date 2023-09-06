@@ -4,7 +4,7 @@ import PostPhoto from './PostPhoto';
 import PostComtent from './PostComtent';
 import PostTime from './PostTime';
 import {ReactComponent as DeleteIcon} from './img/delete.svg';
-import Text from '../../../../ui/Text';
+import {Text} from '../../../../ui/Text';
 
 export const Post = ({postData}) => {
   const {title, author, ups, date, id, thumbnail} = postData;
