@@ -1,11 +1,10 @@
-import style from './FirstPage.module.css';
+// import style from './FirstPage.module.css';
 import {Text} from '../../../../ui/Text';
 
 import {useSelector} from 'react-redux';
 
 export const FirstPage = () => {
   const token = useSelector((state) => state.token.token);
-  console.log(style);
 
   return (
     <>

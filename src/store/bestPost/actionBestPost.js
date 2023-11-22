@@ -13,7 +13,7 @@ export const bestRequestAsync = createAsyncThunk(
     if (!token || isLast) return;
 
     return axios(
-      `${URL_API}/${page}?limit=5&${after ? `after=${after}` : ''}`,
+      `${URL_API}/${page}?limit=10&${after ? `after=${after}` : ''}`,
       {
         headers: {
           Authorization: `bearer ${token}`,

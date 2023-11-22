@@ -1,7 +1,7 @@
 import style from './Auth.module.css';
 import {ReactComponent as LoginIcon} from './img/login.svg';
 import {urlAuth} from '../../../api/auth';
-import {Text} from '../../../UI/Text';
+import {Text} from '../../../ui/Text';
 import {useState} from 'react';
 import {deleteToken} from '../../../store/token/actionToken';
 import {useDispatch} from 'react-redux';
@@ -16,11 +16,13 @@ export const Auth = () => {
 
   const delToken = (e) => {
     dispatch(deleteToken());
+    window.location.replace('http://localhost:3000/auth');
   };
 
   const toggleBtn = () => {
     setBtnClose(btnClose === 'dnone' ? 'logout' : 'dnone');
   };
+
   return (
     <div className={style.container}>
       {loading ? (

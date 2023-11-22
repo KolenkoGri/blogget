@@ -9,8 +9,7 @@ export const ErrorPage = () => {
   const accessToken = `#access_token=`;
   const firstPage = `auth${accessToken}${token}${tokenType}${scope}`;
   const test = window.location.href;
-  const testR = test.replace('https://blogget-tan.vercel.app/', '');
-  console.log(firstPage === testR);
+  const testR = test.replace('https://http://localhost:3000/', '');
   return (
     <>
       {firstPage === testR ? (

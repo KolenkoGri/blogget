@@ -6,7 +6,7 @@ export const updateComment = (comment) => ({
 });
 
 const initialState = {
-  comment: 'Мой коментарий',
+  comment: 'Мой комментарий',
 };
 
 export const commentReducer = (state = initialState, action) => {

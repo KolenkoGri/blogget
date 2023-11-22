@@ -4,12 +4,9 @@ import {useDispatch} from 'react-redux';
 import {bestRequestAsync} from '../store/bestPost/actionBestPost';
 import notphoto from '../components/Main/List/img/notphoto.jpg';
 
-// import AuthLoader from '../ui/AuthLoader';
-
 export const useBestPost = () => {
   const best = useSelector((state) => state.best.data);
   const token = useSelector((state) => state.token.token);
-  // const loading = useSelector((state) => state.best.loading);
   const dispatch = useDispatch();
   const postData = [];
   useEffect(() => {
